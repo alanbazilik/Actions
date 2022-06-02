@@ -1,1 +1,14 @@
-
+name: ionic
+on: push
+jobs: 
+  check-react-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install -g @ionic/cli
+      - run: ionic info
+      - run: ionic -v
+     
